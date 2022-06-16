@@ -11,8 +11,8 @@ public class Main {
     public static void task1() {
         //1
         Integer[] arr1 = new Integer[]{1, 2, 3};
-        Double[] arr2 = {1.57, 7.654, 9.986};
-        Main[] arr3 = new Main[3];
+        Double[] arr2 = {1.57, 2.264, 9.986};
+        String[] arr3 = new String[]{"s", "st", "str"};
 
         //2
         printArray(arr1);
@@ -25,9 +25,11 @@ public class Main {
         printReverseArray(arr3);
 
         //4
-        for (int i = 0, length = arr1.length; i < length; i++)
-            if ((arr1[i] & 1) == 1)
+        for (int i = 0, length = arr1.length; i < length; i++) {
+            if ((arr1[i] & 1) == 1) {
                 ++arr1[i];
+            }
+        }
         printArray(arr1);
     }
 
@@ -85,8 +87,10 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             if (prevMap.containsKey(target - arr[i])) {
                 System.out.println(arr[prevMap.get(target - arr[i])] + " " + arr[i]);
+                prevMap.remove(target - arr[i]);
+            } else {
+                prevMap.put(arr[i], i);
             }
-            prevMap.put(arr[i], i);
         }
     }
 
@@ -97,10 +101,10 @@ public class Main {
         }
         for (int i = 0, length = array.length; ; i++) {
             if (i == length - 1) {
-                System.out.println(array[i] == null ? "null" : array[i]);
+                System.out.println(array[i]);
                 break;
             }
-            System.out.print((array[i] == null ? "null" : array[i]) + ", ");
+            System.out.print(array[i] + ", ");
         }
     }
 
@@ -111,10 +115,10 @@ public class Main {
         }
         for (int i = array.length - 1; ; i--) {
             if (i == 0) {
-                System.out.println(array[i] == null ? "null" : array[i]);
+                System.out.println(array[i]);
                 break;
             }
-            System.out.print((array[i] == null ? "null" : array[i]) + ", ");
+            System.out.print(array[i] + ", ");
         }
     }
 }
